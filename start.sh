@@ -30,6 +30,6 @@ trap cleanup SIGINT SIGTERM
 node server.js &
 SERVER_PID=$!
 
-cd client && npm run dev
+(cd client && npm run dev)
 
 cleanup

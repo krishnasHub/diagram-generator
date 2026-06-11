@@ -19,7 +19,6 @@ start "Diagram Generator - Backend" /min cmd /c "node server.js"
 timeout /t 2 /nobreak >nul
 
 :: Start frontend (blocking — closing this window stops everything)
-cd client
+pushd client
 npm run dev
-
-cd ..
+popd

@@ -27,10 +27,10 @@ if ($stale) { Stop-Process -Id $stale -Force -ErrorAction SilentlyContinue }
 $serverJob = Start-Job -ScriptBlock { node "$using:PWD\server.js" }
 
 try {
-  Set-Location client
+  Push-Location client
   npm run dev
 } finally {
   Stop-Job $serverJob
   Remove-Job $serverJob
-  Set-Location ..
+  Pop-Location
 }
